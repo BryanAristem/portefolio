@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos de moi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1c1c;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 20px;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+    }
+
+    .about-section, .parcours-section {
+      max-width: 800px;
+      margin: 0 auto 60px auto;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about-section p,
+    .parcours-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    .parcours-section ul {
+      list-style: none;
+      padding: 0;
+      color: #ccc;
+    }
+
+    .parcours-section li {
+      margin-bottom: 15px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .parcours-section li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #50bcd3;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    footer {
+      background: #000;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+    section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parcours-section {
+  background-color: #222;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.about-section {
+  margin-bottom: 40px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bryan <span style="font-weight: normal;">R.</span></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Cv.html">CV</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h2>RAMBELOARISOA MANDRINDRA Yves Bryan</h2>
+      <p>
+        Je m'appelle Bryan, étudiant en BTS SIO (Service Informatique des Organisations). <br><br>
+        Actuellement en formation au sein de la MCCI Business School, je développe mes compétences dans des domaines tels que le développement front-end, back-end et la gestion de base de données. <br><br>
+        je suis aussi un artiste en herbe avec une passion profonde pour la créativité sous toutes ses formes. Depuis mon plus jeune âge, je suis attiré par le dessin, la musique et l’expression visuelle. L’art a toujours été pour moi un moyen de raconter des histoires, de transmettre des émotions et d’imaginer sans limite.<br><br>
+        L’informatique me donne les outils pour transformer mes idées artistiques en projets concrets, interactifs et vivants. Elle ouvre des portes infinies pour créer, innover, et laisser une empreinte à la fois esthétique et fonctionnelle dans le monde numérique.<br><br>
+        Curieux, motivé et toujours prêt à apprendre, je travaille sur plusieurs projets personnels et académiques afin de mettre en pratique mes connaissances. 
+      </p>
+    </section>
+
+    <section class="parcours-section" id="parcours">
+      <h2>Mon parcours</h2>
+      <ul>
+        <li><strong>2025-2026:</strong> BTS SIO ( SERVICE INFORMATIQUE AUX ORGANISATION )MCCI BUISNESS SCHOOL- MAURICE </li>
+        <li><strong>2022- 2024 :</strong> Baccalauréat Technologique Français (BAC STMG)</li>
+        <li><strong>2020-2021 :</strong> Brevet d'études du Premier Cycle (BEPC)-MADAGASCAR </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Téléphone</strong><br>+230 58 18 75 61
+    </div>
+    <div>
+      <strong>E-mail</strong><br>bryanrambelo@gmail.com
+    </div>
+    <div>
+      <strong>Suivez-moi</strong><br>LinkedIn | Rambelo Bryan
+    </div>
+    <div>
+      &copy; 2025 Bryan R. / Student MCCI Business School
+    </div>
+  </footer>
+
+  <script>
+    // Détecte les sections visibles au scroll
+    const sections = document.querySelectorAll('section');
+  
+    const revealOnScroll = () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    };
+  
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Étudiant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+
+    /* Responsive tablette (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .skills-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .project-card {
+    min-width: 260px;
+    padding: 15px;
+  }
+
+  .carousel-images img {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+/* Responsive mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .circle-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 14px;
+  }
+
+  .skills-card h2 {
+    font-size: 18px;
+  }
+
+  .project-card h3 {
+    font-size: 16px;
+  }
+
+  .image-carousel {
+    width: 260px;
+  }
+
+  .carousel-images img {
+    width: 120px;
+    height: 80px;
+  }
+}
+/* Animation fade-in de base */
+@keyframes fadeInUpDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe d'animation */
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUpDown 3s ease forwards;
+}
+
+/* Délais pour enchaîner les animations */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #1c1c1c;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 20px;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 60px;
+  flex-wrap: wrap;
+  min-height: 100vh; /* Ajoute ceci */
+}
+
+
+    .hero img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .hero-content h1 {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .circle-btn {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .circle-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-cv {
+      background: #f5a623;
+    }
+
+    .btn-projects {
+      background: #eb5757;
+    }
+
+    .btn-contact {
+      background: #50bcd3;
+    }
+
+    footer {
+      background: #000;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+    .skills {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #2a2a2a;
+}
+
+
+.skills-card {
+  background: #8d8b8b;
+  padding: 30px;
+  border-radius: 15px;
+  width: 1000px; /* largeur augmentée */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #1c1c1c;
+}
+
+.skills-card h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #191933;
+  transition: width 0.6s ease-in-out;
+}
+
+.projects {
+  padding: 60px 40px;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.projects h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.project-carousel {
+  display: flex;
+  justify-content: center; /* Centrer les cartes */
+  flex-wrap: wrap;         /* Retour ligne si nécessaire */
+  gap: 30px;               /* Espace entre les cartes */
+  padding: 20px 0;
+}
+
+.project-card {
+  max-width: 400px;      /* Taille plus grande mais raisonnable */
+  width: 100%;
+  flex: 0 0 auto;
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+
+.project-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.project-carousel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.project-card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #50bcd3;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: #3ca5b8;
+}
+
+.image-carousel {
+  width: 300px;       /* Largeur fixe du carrousel */
+  overflow: hidden;
+  height: 150px;
+  margin: 0 auto;     /* Centre le carrousel horizontalement */
+}
+
+.carousel-images {
+  display: flex;
+  animation: scroll 10s infinite linear;
+}
+
+.carousel-images img {
+  height: 150px;          /* Réduit la hauteur */
+  width: 200px;           /* Réduit la largeur */
+  margin-right: 10px;     /* Espace entre les images */
+  object-fit: cover;      /* Garde un bon cadrage même si l'image est redimensionnée */
+  border-radius: 8px;     /* Optionnel : coins arrondis pour un look plus moderne */
+}
+
+@keyframes scroll {
+  5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+}
+
+.skills-card {
+  background: #302f2f;
+  border-radius: 15px;
+  width: 1000px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: #ffffff;
+  text-align: center;
+}
+
+.skills-card h2 {
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.skill {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.skill span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bar {
+  height: 12px;
+  background: #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #191933;
+  transition: width 0.6s ease-in-out;
+}
+
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+
+html, body {
+  overflow-y: scroll;
+  height: 100%; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Bryan  <span style="font-weight: normal;">R.</span>PORTEFOLIO</h1>
+    <nav>
+      <ul>
+        <li><a href="Cv.html">CV</a></li>
+        <li><a href="Projets.html">Projets</a></li>
+        <li><a href="Propos.html">A Propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <section class="hero animate-on-scroll delay-1">
+    <img src="photo .jpg" alt="Photo de profil">
+    <div class="hero-content">
+      <h1>Bonjour</h1>
+      <p>Bienvenue sur mon portfolio ! Je suis un étudiant en Informatique , et vous trouverez ici un aperçu de mes projets, compétences et réalisations.</p>
+      <div class="buttons">
+        <a href="Cv.html" class="circle-btn btn-cv">CV</a>
+        <a href="Projets.html" class="circle-btn btn-projects">Projets</a>
+        <a href="Propos.html" class="circle-btn btn-contact">A propos</a>
+        <a href="Propos.html#parcours" class="circle-btn btn-cv">Mon Parcours</a>
+       
+
+      </div>
+    </div>
+  </section>
+
+  <section class="skills animate-on-scroll ">
+  <div class="skills-card">
+    <h2>Mes Compétences</h2>
+
+    <div class="skill">
+      <span>HTML5 / CSS (90%)</span>
+      <div class="bar">
+        <div class="progress" style="width: 90%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>PHP / MySQL (50%)</span>
+      <div class="bar">
+        <div class="progress" style="width: 50%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>JavaScript (25%)</span>
+      <div class="bar">
+        <div class="progress" style="width: 25%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>Python (35%)</span>
+      <div class="bar">
+        <div class="progress" style="width: 35%;"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <section class="projects animate-on-scroll delay-3">
+    <h2>Aperçu de mes projets</h2>
+    <div class="project-carousel">
+  
+        <div class="project-card">
+            <h3>Site de vente de Voitures</h3>
+            <p>Réservation en ligne de voitures de luxe.</p>
+            <a href="../Supercar/supercar client/Acceuil.html" target="_blank">Voir le site</a>
+          
+            <!-- Carrousel d'images -->
+            <div class="image-carousel">
+              <div class="carousel-images">
+                <img src="image/Supercar_Logo.png" alt="Image 3">
+                <img src="image/Capture d'écran 2025-05-07 093554.png" alt="Image 1">
+                <img src="image/Capture d'écran 2025-05-07 093914.png" alt="Image 2">
+                <img src="image/Capture d'écran 2025-05-07 093817.png" alt="Image 4">
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3> Administrateur de Supercar </h3>
+            <p> Projet en cours ⭕</p>
+            <a href="../Supercar/Admin Supercar/Acceuil.html" target="_blank">Voir le site</a>
+          
+            <!-- Carrousel d'images -->
+            <div class="image-carousel">
+              <div class="carousel-images">
+                <img src="image/Supercar_Logo.png" alt="Image 3">
+                <img src="image/Capture d'écran- Admin 1.png" alt="Image 1">
+                <img src="image/Capture d'écran Admin 2.png" alt="Image 2">
+                <img src="image/Capture d'écran Admin 3.png" alt="Image 4">
+              </div>
+            </div>
+          </div>
+          
+          <script>
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('animate');
+                } else {
+                  entry.target.classList.remove('animate');
+                }
+              });
+            }, {
+              threshold: 0.1
+            });
+          
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+              observer.observe(el);
+            });
+          </script>
+          
+          
+  
+
+  </section>
+</main>
+  
+  
+  <footer>
+    <div>
+      <strong>Téléphone</strong><br>+230 58 18 75 61
+    </div>
+    <div>
+      <strong>E-mail</strong><br>bryanrambelo@gmail.com
+    </div>
+    <div>
+      <strong>Suivez-moi</strong><br>LinkedIn | Rambelo Bryan
+    </div>
+    <div>
+      &copy; 2025 Bryan R./Student MCCI Business School
+    </div>
+  </footer>
+
+</body>
+</html>

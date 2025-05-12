@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Projets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1c1c;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #000;
+    }
+
+    header h1 {
+      font-size: 20px;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 40px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .filter-buttons button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background-color: #50bcd3;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .project-card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .project-card a {
+      background-color: #50bcd3;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      background-color: #3ca5b8;
+    }
+
+    footer {
+      background: #000;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .projects-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Animation d'apparition */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation des cartes */
+.project-card {
+  animation: fadeInUp 0.9s ease forwards;
+  opacity: 0; /* Pour éviter qu'elles soient visibles avant l'animation */
+}
+
+/* Pour éviter qu'elles restent invisibles si JS est désactivé */
+body.loaded .project-card {
+  opacity: 1;
+}
+
+/* Effet au survol */
+.project-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bryan <span style="font-weight: normal;">R.</span></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Cv.html">CV</a></li>
+        <li><a href="Propos.html">À propos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Mes Projets</h2>
+
+    <div class="projects-container">
+
+      <div class="project-card" data-category="Client">
+        <img src="image/Capture d'écran 2025-05-07 093554.png" alt="Supercar Client">
+        <h3>Site de vente de Voitures</h3>
+        <p>Réservation de voitures de luxe </p>
+        <a href="../Supercar/supercar client/Acceuil.html" target="_blank">Voir le site</a>
+      </div>
+
+
+
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Téléphone</strong><br>+230 58 18 75 61
+    </div>
+    <div>
+      <strong>E-mail</strong><br>bryanrambelo@gmail.com
+    </div>
+    <div>
+      <strong>Suivez-moi</strong><br>LinkedIn | Bryan Rambelo
+    </div>
+    <div>
+      &copy; 2025 Bryan R. / Student MCCI Business School
+    </div>
+  </footer>
+
+  <script>
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-buttons button');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.filter-buttons button[onclick*="${category}"]`).classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+<script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+</script>
+
+
+</body>
+</html>

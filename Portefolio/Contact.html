@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #000;
+    }
+
+    header h1 {
+      font-size: 20px;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 40px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .contact-info strong {
+      color: #50bcd3;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #2c2c2c;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #999;
+    }
+
+    button {
+      background-color: #50bcd3;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3ba7c0;
+    }
+
+    footer {
+      background: #000;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+   
+    .contact-cylinder-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+.cylinder {
+  perspective: 1200px;
+  width: 360px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+
+.item {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: #2a2a2a;
+  color: #fff;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 12px;
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateX(0deg) translateZ(150px);
+  transition: opacity 0.3s ease;
+}
+
+.item.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.preview {
+  width: 180px;
+  height: 180px;
+  background-color: #2a2a2a;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bryan <span style="font-weight: normal;">R.</span></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Cv.html">CV</a></li>
+        <li><a href="Propos.html">À propos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contact</h2>
+    <div class="contact-cylinder-section">
+      <div class="cylinder" id="cylinder" onclick="rotate(1)">
+        <div class="item" data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv_Xr9iiPqIkcsTqv6BnSq_1NXnZyBbZPCkg&s"><strong>Téléphone :</strong> +230 58 18 75 61</div>
+        <div class="item" data-img="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Mail-512.png"><strong>Email :</strong> bryanrambelo@gmail.com</div>
+        <div class="item" data-img="data:image/jpeg;base64,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"><strong>LinkedIn :</strong> Bryan Rambelo</div>
+        <div class="item" data-img="https://similarpng.com/_next/image?url=https%3A%2F%2Fimage.similarpng.com%2Ffile%2Fsimilarpng%2Fvery-thumbnail%2F2020%2F04%2FFacebook-logo-3d-button-social-media-png-3.png&w=3840&q=75"><strong>Facebook :</strong> Bryan Aristem</div>
+      </div>
+      <div class="preview">
+        <img id="preview-img" src="img/phone.png" alt="Aperçu" />
+      </div>
+    </div>
+    
+    
+    
+</main>
+
+<script>
+  const items = document.querySelectorAll('.cylinder .item');
+  const cylinder = document.getElementById('cylinder');
+  const preview = document.getElementById('preview-img');
+  let currentIndex = 0;
+
+  function updateCylinder() {
+    const angle = currentIndex * -90;
+    cylinder.style.transform = `rotateX(${angle}deg)`;
+
+    items.forEach((item, i) => {
+      if (i === currentIndex % items.length) {
+        item.classList.add('visible');
+        preview.src = item.getAttribute('data-img');
+      } else {
+        item.classList.remove('visible');
+      }
+      item.style.transform = `rotateX(${i * 90}deg) translateZ(150px)`;
+    });
+  }
+
+  function rotate(direction) {
+    currentIndex = (currentIndex + direction + items.length) % items.length;
+    updateCylinder();
+  }
+
+  updateCylinder(); // initialisation
+</script>
+
+
+    
+</body>
